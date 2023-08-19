@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    background: black;
+}
+
+.guide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    padding: 30px;
+    border: 3px solid whitesmoke;
+    box-shadow: 0 0 30px white;
+    border-radius: 20px;
+    width: 100px;
+}
+
+.guide .sun-text {
+    color: whitesmoke;
+    font-size: 25px;
+    display: flex;
+}
+
+.guide .sun-text div {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    border-radius: 50%;
+    background: linear-gradient(yellow, silver, yellow);
+}
+
+.guide .earth-text {
+    color: whitesmoke;
+    font-size: 25px;
+    display: flex;
+    margin-top: 20px;
+}
+
+.guide .earth-text div {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    border-radius: 50%;
+    background: linear-gradient(aqua, silver, aqua, green, green);
+}
+
+.guide .moon-text {
+    color: whitesmoke;
+    font-size: 25px;
+    display: flex;
+    margin-top: 20px;
+}
+
+.guide .moon-text div {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    border-radius: 50%;
+    background: linear-gradient(silver, white, silver);
+}
+
+
+.container {
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
+}
+
+.container .sun {
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    background: linear-gradient(yellow, silver, yellow);
+    border-radius: 50%;
+    box-shadow: 0 0 6em white;
+    border: 0.05em solid black;
+}
+
+.container .earth, .moon {
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    border-width: 0.2em 0.2em 0 0;
+    border-radius: 50%;
+}
+
+.container .earth {
+    top: 5em;
+    left: 5em;
+    width: 32em;
+    height: 32em;
+    animation: orbit 10s linear infinite;
+}
+
+.container .moon {
+    top: 0.5em;
+    right: -0.5em;
+    width: 10em;
+    height: 10em;
+    animation: orbit 1.5s linear infinite;
+}
+
+.container .earth::before,
+.container .moon::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.container .earth::before {
+    top: 2.8em;
+    right: 2em;
+    width: 5em;
+    height: 5em;
+    border: 0.05em solid black;
+    background: linear-gradient(aqua, silver, aqua, green, green);
+    box-shadow: 0 0 2em white;
+}
+
+.container .moon::before {
+    top: 0.8em;
+    right: -1em;
+    width: 3.2em;
+    height: 3.2em;
+    border: 0.05em solid black;
+    background: linear-gradient(silver, white, silver);
+    box-shadow: 0 0 1em white;
+}
+
+@keyframes orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+    .guide {
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        margin: 0;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .container .earth {
+        width: 30em;
+        height: 30em;
+
+    }
+    .container .moon {
+        top: 0;
+        right: 0em;
+        width: 8em;
+        height: 8em;
+    }
+    .container .earth::before {
+        top: 2.8em;
+        right: 2.8em;
+        width: 3em;
+        height: 3em;
+    }
+    
+    .container .moon::before {
+        top: 0.8em;
+        right: 0.2em;
+        width: 1.2em;
+        height: 1.2em;
+    }  
+}
+@media (max-width: 370px) {
+    .container {
+        width: 110%;
+    }
+}
+@media (max-width: 300px) {
+    .container {
+        width: 115%;
+    }
+    .container .sun {
+        width: 7em;
+        height: 7em;
+    }
+    .container .earth {
+        width: 24em;
+        height: 24em;
+    }
+    .container .earth::before {
+        top: 2.8em;
+        right: 2em;
+    }
+}
